@@ -12,6 +12,10 @@ migrations/
 *.py[cod] 
 *$py.class 
 
+#react
+frontend/frontend/node_modules
+frontend/frontend/package-lock.json
+
 # Distribution / packaging 
 .Python build/ 
 develop-eggs/ 
