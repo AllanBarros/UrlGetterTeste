@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import *
+from .crawler import crawl
 
 def dbSave(initialUrl, urls_internas):
 #Criando entrada na tabela da url inicial
