@@ -4,7 +4,7 @@ DATABASES = {
         'NAME': 'urlGetter',
         'USER': 'postgres',
         'PASSWORD': 'admin',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }

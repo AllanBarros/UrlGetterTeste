@@ -7,10 +7,11 @@ total_urls_visited = 0
 def is_valid(url):
  
     # Check para url valida
-    
-    parsed = urlparse(url)
-    return bool(parsed.netloc) and bool(parsed.scheme)
-
+    if url:
+        parsed = urlparse(url)
+        return bool(parsed.netloc) and bool(parsed.scheme)
+    else:
+        return False
 
 def get_all_website_links(url, urls_list):
     # Retorna todas as URL's localizadas na URL inicial
