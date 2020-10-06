@@ -1,0 +1,6 @@
+applications:
+    - name: UrlGetterBackend
+      host: url-getter-backend
+      memory: 192M
+      buildpack: python_buildpack
+      command: gunicorn --env DJANGO_SETTINGS_MODULE=urlGetter.settings urlGetter.wsgi -b 0.0.0.0:$PORT

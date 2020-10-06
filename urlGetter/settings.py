@@ -25,7 +25,7 @@ SECRET_KEY = 'xlkax(grob=k0d=n%q+0^c@qc3kj_&jhc()w9-hiws(t^c^(56'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['url-getter-backend.mybluemix.net']
 
 
 # Application definition
@@ -117,8 +117,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+     "https://url-getter.mybluemix.net/",
+    # "https://url-getter-backend.mybluemix.net/",
 ]
