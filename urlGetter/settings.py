@@ -12,9 +12,15 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from . import localConfig
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -25,12 +31,16 @@ SECRET_KEY = 'xlkax(grob=k0d=n%q+0^c@qc3kj_&jhc()w9-hiws(t^c^(56'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['url-getter-backend.mybluemix.net']
+ALLOWED_HOSTS = ['url-getter-backend.mybluemix.net', 'url-getter.mybluemix.net']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+    'django.contrib.redirects',
+    'django_comments',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,9 +53,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -113,6 +123,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -120,6 +131,11 @@ USE_TZ = True
 # STATIC_URL = '/static/'
 
 CORS_ALLOWED_ORIGINS = [
-     "https://url-getter.mybluemix.net/",
+    # '*',
+    'https://url-getter.mybluemix.net/',
     # "https://url-getter-backend.mybluemix.net/",
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'https://url-getter.mybluemix.net/',
 ]
